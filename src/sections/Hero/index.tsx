@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ReactTyped } from "react-typed";
 
 const Hero = () => {
@@ -65,7 +64,7 @@ const Hero = () => {
                         Turning ideas into responsive, user-friendly digital solutions.
                      </p>
                      <div className="flex justify-center xl:justify-start mt-10">
-                        <Link className="main-btn" to="#contact">Download Resume</Link>
+                        <a className="main-btn" target="_blank" rel="noopener noreferrer" href="/resume.pdf">Download Resume</a>
                      </div>
                   </div>
                </div>
