@@ -13,7 +13,7 @@ const Contact = () => {
    };
 
    return (
-      <section id="contact" className="contact_area relative pt-25 mt-6 pb-120">
+      <section id="contact" className="contact_area relative lg:pt-25 mt-6 pb-[6rem]">
          <div className="contact_image flex items-center justify-end">
             <div className="lg:pr-13">
                <img

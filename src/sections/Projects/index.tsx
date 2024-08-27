@@ -11,7 +11,7 @@ import { projects } from '../../data/projects';
 
 const Projects = () => {
    return (
-      <section id="projects" className="work_area pt-120 pb-120">
+      <section id="projects" className="work_area pt-[4rem] lg:pt-[6rem] pb-[2rem]">
          <div className="container">
             <div className="row justify-center">
                <div className="w-ull lg:w-1/2">

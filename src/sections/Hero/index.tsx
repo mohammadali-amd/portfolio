@@ -70,12 +70,10 @@ const Hero = () => {
                </div>
 
                <div className="header_image flex relative items-center">
-                  <div className="z-10 pb-24">
+                  <div className="z-10 lg:pb-24">
                      <img
                         src="/images/hacker.webp"
                         alt="Hero image"
-                        // width={800}
-                        // height={800}
                         loading="lazy"
                      />
                   </div>
