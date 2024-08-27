@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import ImageGallery from '../../components/ImageGallery';
-import NotFound from '../../components/NotFound';
+import Loader from '../../components/Loader/Loader';
 import { Project } from '../../types/types';
 import { projects } from '../../data/projects';
 
@@ -25,7 +25,7 @@ const ProjectDetails = () => {
    }, [id]);
 
    if (!project) {
-      return <NotFound />;
+      return <Loader />;
    }
 
    return (
