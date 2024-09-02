@@ -1,7 +1,29 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
 import { projects } from '../../data/projects';
 
+const technologies = ['All', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Material UI', 'Node.js'];
+
 const ProjectsPage = () => {
+   const [selectedFilter, setSelectedFilter] = useState('All');
+   const [filteredProjects, setFilteredProjects] = useState(projects);
+
+   const handleFilterChange = (technology: string) => {
+      setSelectedFilter(technology);
+
+      if (technology === 'All') {
+         setFilteredProjects(projects);
+      } else {
+         const filtered = projects.filter((project) =>
+            project.technologies.some((tech) => tech.name === technology)
+         );
+         setFilteredProjects(filtered);
+      }
+   };
    return (
       <section id="work" className="work_area pt-120 pb-120">
          <div className="container">
@@ -14,11 +36,36 @@ const ProjectsPage = () => {
                </div>
             </div>
          </div>
+
+         <div className="container mb-6">
+            <div className="flex justify-center">
+               <Swiper
+                  spaceBetween={25}
+                  slidesPerView="auto"
+                  freeMode={true}
+                  grabCursor={true}
+               >
+                  {technologies.map((technology) => (
+                     <SwiperSlide key={technology} className='flex-shrink'>
+                        <button
+                           onClick={() => handleFilterChange(technology)}
+                           className={`py-2 px-4 rounded-md whitespace-nowrap ${selectedFilter === technology ? 'bg-theme-color text-white' : 'bg-white text-theme-color'
+                              }`}
+                        >
+                           {technology}
+                        </button>
+                     </SwiperSlide>
+                  ))}
+
+               </Swiper>
+            </div>
+         </div>
+
          <div className="container-fluid">
             <div className="work_wrapper relative">
                <div className="row work_active px-4 md:px-12">
 
-                  {projects.map((item) => (
+                  {filteredProjects.map((item) => (
                      <div key={item.id}>
                         <div className="w-full px-5">
                            <div className="single_team_item mx-auto group">
