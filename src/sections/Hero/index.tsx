@@ -70,7 +70,9 @@ const Hero = memo(() => {
                   </div>
                </div>
 
-               <div className="header_image flex relative items-center">
+               <div className="header_image">
+                  <div className="absolute z-0 w-[300px] md:w-[680px] h-[150px] md:h-[450px] right-[10%] top-[20%] bg-emerald-600 blur-[100px] md:blur-[160px]" />
+
                   <div className="z-10 lg:pb-24">
                      <img
                         src="/images/hacker.webp"
@@ -78,7 +80,6 @@ const Hero = memo(() => {
                         loading="lazy"
                      />
                   </div>
-                  <div className="absolute z-0 w-[300px] md:w-[700px] h-[150px] md:h-[400px] left-[5%] top-[15%] bg-emerald-600 blur-[100px] md:blur-[160px]" />
                </div>
             </div>
          </div>

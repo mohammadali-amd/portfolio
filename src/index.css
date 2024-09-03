@@ -290,7 +290,7 @@ button {
 }
 
 .header_image {
-  @apply xl:absolute top-0 right-0 w-full xl:w-1/2 h-auto xl:h-full mx-auto md:mt-6;
+  @apply relative xl:absolute flex items-center top-0 right-0 w-full xl:w-1/2 h-auto xl:h-full mx-auto md:mt-6;
 }
 
 .header_image img {
