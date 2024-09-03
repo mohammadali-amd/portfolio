@@ -29,17 +29,17 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
       }
    };
 
-   const handlePrev = () => {
-      if (swiperRef.current) {
-         swiperRef.current.slidePrev();
-      }
-   };
+   // const handlePrev = () => {
+   //    if (swiperRef.current) {
+   //       swiperRef.current.slidePrev();
+   //    }
+   // };
 
-   const handleNext = () => {
-      if (swiperRef.current) {
-         swiperRef.current.slideNext();
-      }
-   };
+   // const handleNext = () => {
+   //    if (swiperRef.current) {
+   //       swiperRef.current.slideNext();
+   //    }
+   // };
 
    return (
       <div className="relative">
@@ -51,7 +51,9 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
                onSlideChange={(swiper) => setMainImageIndex(swiper.activeIndex)}
                onSwiper={(swiper) => (swiperRef.current = swiper)}
                initialSlide={mainImageIndex}
+               navigation
                modules={[Navigation]}
+               className='swiperCustom'
             >
                {images.map((image, index) => (
                   <SwiperSlide key={index}>
@@ -69,7 +71,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
             </Swiper>
 
             {/* Custom Navigation Buttons */}
-            <button
+            {/* <button
                onClick={handlePrev}
                className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white bg-theme-color/70 hover:bg-theme-color/85 text-2xl z-10 px-4 py-[6px] rounded-full"
             >
@@ -80,7 +82,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
                className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white bg-theme-color/70 hover:bg-theme-color/85 text-2xl z-10 px-4 py-[6px] rounded-full"
             >
                &gt;
-            </button>
+            </button> */}
          </div>
 
          {/* Image Thumbnails */}

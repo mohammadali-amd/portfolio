@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ import Loader from '../../components/Loader/Loader';
 import { Project } from '../../types/types';
 import { projects } from '../../data/projects';
 
-const ProjectDetails = () => {
+const ProjectDetails = memo(() => {
    const { id } = useParams();
    const navigate = useNavigate();
 
@@ -131,7 +131,7 @@ const ProjectDetails = () => {
          </div>
       </div>
    );
-};
+});
 
 // Utility functions for getting previous and next project slugs
 const getPreviousProjectSlug = (currentSlug: string | undefined) => {

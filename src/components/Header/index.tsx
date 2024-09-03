@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
@@ -10,18 +10,22 @@ const Header = () => {
 
    const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
-   const handleClickOutside = (event: MouseEvent) => {
+   const handleClickOutside = useCallback((event: MouseEvent) => {
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
          setMobileMenu(false);
       }
-   };
+   }, []);
 
    const mobileMenuHandler = () => {
       setMobileMenu(prev => !prev)
    };
 
-   const changeStyle = () => {
+   const changeStyle = useCallback(() => {
       setIsScroll(window.scrollY);
+   }, []);
+
+   const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
    };
 
    useEffect(() => {
@@ -31,7 +35,7 @@ const Header = () => {
          window.removeEventListener("scroll", changeStyle);
          document.removeEventListener('mousedown', handleClickOutside);
       };
-   }, []);
+   }, [changeStyle, handleClickOutside]);
 
    return (
       <section>
@@ -51,7 +55,7 @@ const Header = () => {
                         </div>
 
                         {/* Mobile Menu */}
-                        <button onClick={mobileMenuHandler} className="block navbar-toggler focus:outline-none lg:hidden" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <button onClick={mobileMenuHandler} className="block navbar-toggler focus:outline-none lg:hidden" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded={mobileMenu} aria-label="Toggle navigation">
                            <span className="toggler-icon"></span>
                            <span className="toggler-icon"></span>
                            <span className="toggler-icon"></span>
@@ -76,20 +80,35 @@ const Header = () => {
          </div>
 
          <div ref={mobileMenuRef} className={`${mobileMenu ? 'translate-x-0' : '-translate-x-full'} fixed z-30 left-0 bottom-0 h-full w-4/5 bg-zinc-950/95 bg-blend-darken shadow-2xl transition-transform duration-200`}>
-            <div>
-               <i onClick={mobileMenuHandler} className="lni lni-close text-3xl absolute right-0 top-0 pr-6 pt-4"></i>
-
-               <ul id="nav" className="items-center content-start navbar-nav text-center mt-15">
+            <i onClick={mobileMenuHandler} className="lni lni-close text-3xl absolute right-0 top-0 pr-6 pt-4"></i>
+            <div className="grid min-h-full content-between">
+               <ul id="nav" className="items-center content-start navbar-nav text-center mt-[90px]">
                   {NavbarLinks.map((link) => (
-                     <li key={link.slug} className="py-5 text-xl">
-                        <HashLink onClick={mobileMenuHandler} smooth to={link.slug}>{link.name}</HashLink>  {/* active */}
+                     <li key={link.slug} className="text-2xl border-b">
+                        <HashLink className="flex justify-center py-8" onClick={mobileMenuHandler} smooth to={link.slug}>
+                           {link.name}
+                        </HashLink>  {/* active */}
                      </li>
                   ))}
+               </ul>
+
+               <ul className="flex justify-center gap-10 pb-10">
+                  <li><Link to="mailto:amidi1380@gmail.com"><i className="lni lni-envelope text-3xl hover:text-emerald-400 duration-200"></i></Link></li>
+                  <li><Link target="_blank" to="https://github.com/mohammadali-amd/"><i className="lni lni-github-original text-3xl hover:text-emerald-400 duration-200"></i></Link></li>
+                  <li><Link to="tel:09104971545"><i className="lni lni-whatsapp text-3xl hover:text-emerald-400 duration-200"></i></Link></li>
+                  <li><Link target="_blank" to="https://www.linkedin.com/in/mohammadaliamidi/"><i className="lni lni-linkedin-original text-3xl hover:text-emerald-400 duration-200"></i></Link></li>
                </ul>
             </div>
          </div>
 
-         <Link to="#" className={isScroll ? 'scroll-top' : 'hidden'}><i className="lni lni-chevron-up"></i></Link>
+         {/* Scroll To Top Button */}
+         <button
+            onClick={scrollToTop}
+            className={isScroll ? 'scroll-top' : 'hidden'}
+            aria-label="Scroll to top"
+         >
+            <i className="lni lni-chevron-up"></i>
+         </button>
       </section>
    )
 }

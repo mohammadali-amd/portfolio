@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { CSSProperties } from 'react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 import { projects } from '../../data/projects';
 
@@ -26,30 +24,18 @@ const Projects = () => {
             <div className="work_wrapper relative">
                <div className="row work_active px-4 md:px-12">
                   <Swiper
-                     style={{
-                        '--swiper-navigation-color': 'teal',
-                        '--swiper-navigation-size': '33px',
-                        // '--swiper-pagination-color': '#000',
-                     } as CSSProperties}
+                     className='swiperCustom'
                      // spaceBetween={20}
                      slidesPerView={1}
                      breakpoints={{
-                        720: {
-                           slidesPerView: 2,
-                        },
-                        1025: {
-                           slidesPerView: 4,
-                        },
-
+                        720: { slidesPerView: 2, },
+                        1025: { slidesPerView: 4, },
                      }}
-                     autoplay={{
-                        delay: 6000,
-                        disableOnInteraction: false,
-                     }}
+                     autoplay={{ delay: 6000, disableOnInteraction: false, }}
                      // onSlideChange={() => console.log('slide change')}
                      navigation={true}
                      // pagination={true}
-                     modules={[Autoplay, Navigation, Pagination]}
+                     modules={[Autoplay, Navigation]}
                   // onSwiper={(swiper) => console.log(swiper)}
                   >
                      {projects.slice(0, 8).map((item) => (

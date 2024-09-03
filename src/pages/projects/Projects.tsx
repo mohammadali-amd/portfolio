@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -8,7 +8,7 @@ import { projects } from '../../data/projects';
 
 const technologies = ['All', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Material UI', 'Node.js'];
 
-const ProjectsPage = () => {
+const ProjectsPage = memo(() => {
    const [selectedFilter, setSelectedFilter] = useState('All');
    const [filteredProjects, setFilteredProjects] = useState(projects);
 
@@ -37,7 +37,7 @@ const ProjectsPage = () => {
             </div>
          </div>
 
-         <div className="container mb-6">
+         <div className="container">
             <div className="flex justify-center">
                <Swiper
                   spaceBetween={25}
@@ -46,10 +46,10 @@ const ProjectsPage = () => {
                   grabCursor={true}
                >
                   {technologies.map((technology) => (
-                     <SwiperSlide key={technology} className='flex-shrink'>
+                     <SwiperSlide key={technology} style={{ flexShrink: 1 }} >
                         <button
                            onClick={() => handleFilterChange(technology)}
-                           className={`py-2 px-4 rounded-md whitespace-nowrap ${selectedFilter === technology ? 'bg-theme-color text-white' : 'bg-white text-theme-color'
+                           className={`py-2 px-4 my-4 rounded-md whitespace-nowrap ${selectedFilter === technology ? 'bg-theme-color text-white' : 'bg-white text-theme-color'
                               }`}
                         >
                            {technology}
@@ -108,6 +108,6 @@ const ProjectsPage = () => {
          </div>
       </section>
    )
-}
+})
 
 export default ProjectsPage

@@ -33,6 +33,7 @@
 
 /* Scroll Bar End */
 
+
 html {
   scroll-behavior: smooth;
 }
@@ -49,6 +50,16 @@ button:focus {
   outline-offset: none;
   outline: none;
 }
+
+/* Swiper Custom Class */
+.swiperCustom {
+  --swiper-navigation-color: teal;
+  --swiper-navigation-size: 33px;
+}
+
+/* Swiper Custom Class End */
+
+
 
 h1,
 h2,
@@ -136,15 +147,15 @@ button {
 }
 
 .scroll-top {
-  @apply w-11 h-11 bg-theme-color flex justify-center items-center text-white fixed bottom-8 left-8 rounded-md text-lg transition-all duration-300 z-20;
+  @apply w-11 h-11 bg-theme-color/80 flex justify-center items-center text-white fixed bottom-8 left-8 rounded-md shadow-md text-lg transition-all duration-300 z-20;
 }
 
 .scroll-top:hover {
-  @apply text-white;
+  @apply bg-theme-color;
 }
 
 .section_title .sub_title {
-  @apply text-base md:text-xl font-semibold text-theme-color;
+  @apply md:text-xl font-semibold text-theme-color;
 }
 
 .section_title .main_title {
@@ -195,7 +206,7 @@ button {
 }
 
 .navbar-nav .nav-item a {
-  @apply inline-block text-lg font-normal text-body-color relative z-10 hover:text-emerald-400;
+  @apply inline-block text-body-color z-10 hover:text-emerald-400;
 }
 
 .navbar-nav .nav-item a.active {

@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { ReactTyped } from "react-typed";
 
-const Hero = () => {
+const Hero = memo(() => {
    return (
-      <div id="home" className="min-h-screen relative z-10 xl:flex items-center">
+      <section id="home" className="min-h-screen relative z-10 xl:flex items-center">
          <div className="hero_shape hidden xl:block shape_1">
             <i className="lni lni-nodejs text-6xl text-green-600"></i>
          </div>
@@ -82,8 +83,8 @@ const Hero = () => {
             </div>
          </div>
 
-      </div>
+      </section>
    )
-}
+})
 
 export default Hero

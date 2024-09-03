@@ -31,8 +31,8 @@ const Contact = () => {
                <div className="w-full lg:w-1/2">
                   <div className="contact_wrapper mt-11">
                      <div className="section_title pb-4">
-                        <h5 className="sub_title">| Contact</h5>
-                        <h4 className="main_title">Ways to contact me</h4>
+                        <h5 className="sub_title text-center lg:text-left">| Contact</h5>
+                        <h4 className="main_title text-center lg:text-left">Ways to contact me</h4>
                         <div className="pt-12 space-y-12 md:space-y-0 md:flex md:justify-between md:gap-3">
                            {/* Linkedin */}
                            <Link target="_blank" to="https://www.linkedin.com/in/mohammadaliamidi/" className="grid justify-items-center hover:text-theme-color" rel="noreferrer">

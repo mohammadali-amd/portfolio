@@ -2,8 +2,8 @@ import { careers } from '../../data/careers';
 
 const Career = () => {
    return (
-      <div className="min-h-screen bg-[#161a27]" id="career">
-         <section className="pt-20">
+      <section className="min-h-screen bg-[#161a27]" id="career">
+         <div className="pt-20">
             <div className="container mx-auto px-4">
                <div className="flex justify-center">
                   <div className="w-full lg:w-3/4 text-center">
@@ -15,9 +15,9 @@ const Career = () => {
                   </div>
                </div>
             </div>
-         </section>
+         </div>
 
-         <section id="experience" className="relative flex flex-col xl:flex-row items-center">
+         <div className="relative flex flex-col xl:flex-row items-center">
             <div className="container mx-auto px-4 relative flex justify-center xl:justify-start items-center">
                <div className="relative lg:pl-10 z-10">
                   <img
@@ -56,8 +56,8 @@ const Career = () => {
                   </ul>
                </div>
             </div>
-         </section>
-      </div>
+         </div>
+      </section>
    );
 };
 
