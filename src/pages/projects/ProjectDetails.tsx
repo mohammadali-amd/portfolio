@@ -61,21 +61,27 @@ const ProjectDetails = memo(() => {
                {/* Links */}
                <div className='text-base'>
                   {project.website && (
-                     <p className="text-base mb-6">
-                        <b>Website:</b> {project.website}
-                     </p>
+                     <div className="flex items-center gap-2 text-base mb-6">
+                        <i className='lni lni-link'></i>
+                        <span>
+                           <b>Website:</b> {project.website}
+                        </span>
+                     </div>
                   )}
                   {project.github && (
-                     <span>
-                        <b>Github:&nbsp;</b>
-                        <Link
-                           to={project.github}
-                           target="_blank"
-                           className="hover:underline"
-                        >
-                           View on GitHub
-                        </Link>
-                     </span>
+                     <div className='flex items-center gap-2'>
+                        <i className='lni lni-github-original'></i>
+                        <span>
+                           <b>Github:&nbsp;</b>
+                           <Link
+                              to={project.github}
+                              target="_blank"
+                              className="hover:underline"
+                           >
+                              View on GitHub
+                           </Link>
+                        </span>
+                     </div>
                   )}
                </div>
 

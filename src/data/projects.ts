@@ -2,7 +2,7 @@ export const projects = [
    {
       id: '1',
       slug: 'flashbaz',
-      title: 'Fullstack Platform',
+      title: 'Fullstack E-commerce',
       name: 'Flashbaz E-commerce',
       mainImage: '/images/projects/flashbaz/flashbaz-1.webp',
       images: [
