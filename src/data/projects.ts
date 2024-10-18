@@ -20,7 +20,7 @@ export const projects = [
          { url: '/images/projects/flashbaz/flashbaz-11.webp' },
       ],
       github: 'https://github.com/mohammadali-amd/flashbaz/',
-      website: 'https://flashbaz.liara.run/',
+      website: 'https://flashbaz.pages.dev/',
       technologies: [
          { name: 'TypeScript', icon: 'lni-typescript' },
          { name: 'Next.js', icon: 'lni-nextjs' },

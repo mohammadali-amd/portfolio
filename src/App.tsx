@@ -2,13 +2,13 @@ import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
-import NotFound from "./components/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import Loader from "./components/Loader/Loader";
 
 const Home = lazy(() => import('./pages/Home'));
 const Projects = lazy(() => import('./pages/projects/Projects'));
 const ProjectDetails = lazy(() => import('./pages/projects/ProjectDetails'));
+const NotFound = lazy(() => import('./components/NotFound'));
 
 function App() {
   return (
